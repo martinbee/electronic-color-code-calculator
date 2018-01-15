@@ -15,8 +15,7 @@ export default class App extends Component {
     bandDColor: '',
   };
 
-  setColorBand = (one, two) => console.log(one, two);
-  //setColorBand = (band, value) => this.setState({ [band]: value });
+  setColorBand = (band, value) => this.setState({ [band]: value });
 
   renderOhmValue() {
     const {
@@ -45,7 +44,7 @@ export default class App extends Component {
         <div className="App-content">
           <BandColorSelects
             bandColorValues={this.state}
-            onChange={this.setColorBand}
+            setColorBand={this.setColorBand}
           />
           {this.renderOhmValue()}
         </div>

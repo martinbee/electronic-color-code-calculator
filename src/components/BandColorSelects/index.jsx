@@ -19,41 +19,35 @@ const getOptions = colorMap => Object.keys(colorMap)
 
 const BandColorSelects = ({
   bandColorValues,
-  onChange,
+  setColorBand,
 }) => {
   const getBandColorConfig = () => {
-    const {
-      bandAColor,
-      bandBColor,
-      bandCColor,
-      bandDColor,
-    } = bandColorValues;
-
     const initialConfig = [
       {
+        key: 'bandAColor',
         label: 'Band A',
-        value: bandAColor,
         map: significantFiguresMap,
       },
       {
+        key: 'bandBColor',
         label: 'Band B',
-        value: bandBColor,
         map: significantFiguresMap,
       },
       {
+        key: 'bandCColor',
         label: 'Band C',
-        value: bandCColor,
         map: multiplierMap,
       },
       {
+        key: 'bandDColor',
         label: 'Band D',
-        value: bandDColor,
         map: toleranceMap,
       },
     ];
 
-    return initialConfig.map(({ map, ...rest }) => ({
-      onChange,
+    return initialConfig.map(({ key, map, ...rest }) => ({
+      value: bandColorValues[key],
+      onChange: (evt, index, value) => setColorBand(key, value),
       options: getOptions(map),
       ...rest,
     }));
@@ -73,7 +67,7 @@ BandColorSelects.propTypes = {
     bandCColor: string,
     bandDColor: string,
   }).isRequired,
-  onChange: func.isRequired,
+  setColorBand: func.isRequired,
 };
 
 export default BandColorSelects;
