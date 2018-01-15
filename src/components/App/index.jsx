@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
+
 import './styles.css';
+import Header from '../Header';
 
 class App extends Component {
+  state = {
+    bandAColor: '',
+    bandBColor: '',
+    bandCColor: '',
+    bandDColor: '',
+  };
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          Electronic Color Code Calculator
-        </header>
+        <Header />
         <p className="App-intro">
           Add code here
         </p>
