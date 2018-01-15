@@ -1,9 +1,4 @@
-import calculateOhmValue from './index.js';
-//import {
-  //significantFiguresMap,
-  //multiplierMap,
-  //toleranceBandMap
-//} from './color-band-maps'
+import calculateOhmValue from './index';
 
 describe('calculateOhmValue', () => {
   describe('given valid band values', () => {
