@@ -7,31 +7,35 @@ import {
 } from 'prop-types';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-import { capitalize } from 'lodash';
+
+import './style.css';
 
 const getMenuItems = options => options
-  .map(color => ({ value: color, primaryText: capitalize(color) }))
-  .map(option => <MenuItem {...option} />);
+  .map(({ value, primaryText }) => (
+    <MenuItem key={value} value={value} primaryText={primaryText} />
+  ));
 
 const BandColorSelect = ({
   label,
-  value,
-  setColorBand,
   options,
+  ...rest
 }) => (
-  <SelectField
-    floatingLabelText={label}
-    value={value}
-    onChange={setColorBand}
-  >
-    {getMenuItems(options)}
-  </SelectField>
+  <div className="band-color-select">
+    <SelectField
+      id={label}
+      floatingLabelText={label}
+      fullWidth
+      {...rest}
+    >
+      {getMenuItems(options)}
+    </SelectField>
+  </div>
 );
 
 BandColorSelect.propTypes = {
   label: string.isRequired,
   value: string,
-  setColorBand: func.isRequired,
+  onChange: func.isRequired,
   options: arrayOf(shape({
     value: string,
     primaryText: string,

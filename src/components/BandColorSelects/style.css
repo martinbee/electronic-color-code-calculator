@@ -1,0 +1,6 @@
+.band-color-selects {
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
