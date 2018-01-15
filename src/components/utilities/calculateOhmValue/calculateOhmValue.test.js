@@ -1,4 +1,5 @@
 import calculateOhmValue from './index';
+import { invalidParametersError } from './errors';
 
 describe('calculateOhmValue', () => {
   describe('given valid band values', () => {
@@ -35,16 +36,7 @@ describe('calculateOhmValue', () => {
 
   describe('given invalid parameters', () => {
     it('returns an error describing valid parameters', () => {
-      const invalidParametersErrorMessage = `
-        calculateOhmValue expects parameters with the following signature:
-        @param {Object} colorBands - contains the resistor's color bands.
-        @param {string} colorBands.bandAColor - band A's color.
-        @param {string} colorBands.bandBColor - band B's color.
-        @param {string} colorBands.bandCColor - band C's color.
-        @param {string} colorBands.bandDColor - band D's color.
-      `;
-
-      expect(() => calculateOhmValue()).toThrow(invalidParametersErrorMessage);
+      expect(() => calculateOhmValue()).toThrow(invalidParametersError);
     });
   });
 });

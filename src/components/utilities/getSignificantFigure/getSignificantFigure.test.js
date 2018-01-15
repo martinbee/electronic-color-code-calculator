@@ -1,4 +1,5 @@
 import getSignificantFigure from './index';
+import { invalidBandColorError } from './errors';
 
 describe('getSignificantFigure', () => {
   describe('given a valid band value', () => {
@@ -12,13 +13,7 @@ describe('getSignificantFigure', () => {
 
   describe('given an invalid band value', () => {
     it('returns an error describing a valid band value', () => {
-      const invalidBandValueErrorMessage = `
-        getSignificantFigure expects parameters with the following signature:
-        @param {string} bandColor - a color from the following list:
-        ${'add significantFigure map logic here'}.
-      `;
-
-      expect(() => getSignificantFigure()).toThrow(invalidBandValueErrorMessage);
+      expect(() => getSignificantFigure()).toThrow(invalidBandColorError);
     });
   });
 });

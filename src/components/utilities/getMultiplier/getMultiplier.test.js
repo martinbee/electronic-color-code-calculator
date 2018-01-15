@@ -1,4 +1,5 @@
 import getMultiplier from './index';
+import { invalidBandColorError } from './errors';
 
 describe('getMultiplier', () => {
   describe('given a valid band value', () => {
@@ -12,13 +13,7 @@ describe('getMultiplier', () => {
 
   describe('given an invalid band value', () => {
     it('returns an error describing a valid band value', () => {
-      const invalidBandValueErrorMessage = `
-        getMultiplier expects parameters with the following signature:
-        @param {string} bandCColor - a color from the following list:
-        ${'add multiplier map logic here'}.
-      `;
-
-      expect(() => getMultiplier()).toThrow(invalidBandValueErrorMessage);
+      expect(() => getMultiplier()).toThrow(invalidBandColorError);
     });
   });
 });

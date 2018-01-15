@@ -1,4 +1,5 @@
 import getTolerance from './index';
+import { invalidBandColorError } from './errors';
 
 describe('getTolerance', () => {
   describe('given a valid band value', () => {
@@ -12,13 +13,9 @@ describe('getTolerance', () => {
 
   describe('given an invalid band value', () => {
     it('returns an error describing a valid band value', () => {
-      const invalidBandValueErrorMessage = `
-        getTolerance expects parameters with the following signature:
-        @param {string} bandDColor - a color from the following list:
-        ${'add tolerance map logic here'}.
-      `;
+      const invalidBandValue = 'fuchsia';
 
-      expect(() => getTolerance()).toThrow(invalidBandValueErrorMessage);
+      expect(() => getTolerance(invalidBandValue)).toThrow(invalidBandColorError);
     });
   });
 });
