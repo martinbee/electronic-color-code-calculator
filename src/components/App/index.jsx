@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 
 import './styles.css';
 import Header from '../Header';
+import OhmValues from '../OhmValues';
+import ErrorMessage from '../ErrorMessage';
+import { calculateOhmValue } from '../utilities';
 
 class App extends Component {
   state = {
@@ -11,13 +14,40 @@ class App extends Component {
     bandDColor: '',
   };
 
+  renderOhmValue() {
+    const {
+      bandAColor,
+      bandBColor,
+      bandCColor,
+      bandDColor,
+    } = this.state;
+
+    const shouldCalculateOhmValue = bandAColor && bandBColor && bandCColor;
+
+    if (!shouldCalculateOhmValue) return null;
+
+    // use state instead??
+    try {
+      const ohmValues = calculateOhmValue({
+        bandAColor,
+        bandBColor,
+        bandCColor,
+        bandDColor,
+      });
+
+      return <OhmValues {...ohmValues} />;
+    } catch ({ message }) {
+      return <ErrorMessage message={message} />;
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
-        <p className="App-intro">
-          Add code here
-        </p>
+        <div className="App-content">
+          {this.renderOhmValue()}
+        </div>
       </div>
     );
   }

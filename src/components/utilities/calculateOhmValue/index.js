@@ -18,7 +18,7 @@ export default function calculateOhmValue(bandColors) {
   const firstSignificantFigure = getSignificantFigure(bandAColor);
   const secondSignificantFigure = getSignificantFigure(bandBColor);
   const multiplier = getMultiplier(bandCColor);
-  const tolerance = getTolerance(bandDColor);
+  const tolerance = getTolerance(bandDColor || 'none');
 
   const baseOhmValue = (
     ((firstSignificantFigure * 10) + secondSignificantFigure) * multiplier
