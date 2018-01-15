@@ -3,8 +3,9 @@ import { number } from 'prop-types';
 
 const OhmValues = ({ minimumOhmValue, maximumOhmValue }) => (
   <div>
-    <p>Minimum: {minimumOhmValue}Ω</p>
-    <p>Maximum: {maximumOhmValue}Ω</p>
+    <h3>Resistance Range:</h3>
+    <p>Minimum: {minimumOhmValue} Ω</p>
+    <p>Maximum: {maximumOhmValue} Ω</p>
   </div>
 );
 

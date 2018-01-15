@@ -17,41 +17,40 @@ import './style.css';
 const getOptions = colorMap => Object.keys(colorMap)
   .map(color => ({ value: color, primaryText: capitalize(color) }));
 
+const baseBandColorConfig = [
+  {
+    key: 'bandAColor',
+    label: 'Band A',
+    map: significantFiguresMap,
+  },
+  {
+    key: 'bandBColor',
+    label: 'Band B',
+    map: significantFiguresMap,
+  },
+  {
+    key: 'bandCColor',
+    label: 'Band C',
+    map: multiplierMap,
+  },
+  {
+    key: 'bandDColor',
+    label: 'Band D',
+    map: toleranceMap,
+  },
+];
+
 const BandColorSelects = ({
   bandColorValues,
   setColorBand,
 }) => {
-  const getBandColorConfig = () => {
-    const initialConfig = [
-      {
-        key: 'bandAColor',
-        label: 'Band A',
-        map: significantFiguresMap,
-      },
-      {
-        key: 'bandBColor',
-        label: 'Band B',
-        map: significantFiguresMap,
-      },
-      {
-        key: 'bandCColor',
-        label: 'Band C',
-        map: multiplierMap,
-      },
-      {
-        key: 'bandDColor',
-        label: 'Band D',
-        map: toleranceMap,
-      },
-    ];
-
-    return initialConfig.map(({ key, map, ...rest }) => ({
+  const getBandColorConfig = () => baseBandColorConfig
+    .map(({ key, map, ...rest }) => ({
       value: bandColorValues[key],
       onChange: (evt, index, value) => setColorBand(key, value),
       options: getOptions(map),
       ...rest,
     }));
-  };
 
   const renderBandColorSelects = () => getBandColorConfig().map(configItem => (
     <BandColorSelect key={configItem.label} {...configItem} />
