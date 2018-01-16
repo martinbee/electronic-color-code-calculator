@@ -5,6 +5,7 @@ import Header from '../Header';
 import BandColorSelects from '../BandColorSelects';
 import OhmValues from '../OhmValues';
 import ErrorMessage from '../ErrorMessage';
+import ResistorColorChart from '../ResistorColorChart';
 import { calculateOhmValue } from '../utilities';
 
 export default class App extends Component {
@@ -42,6 +43,7 @@ export default class App extends Component {
       <div className="App">
         <Header />
         <div className="App-content">
+          <ResistorColorChart {...this.state} />
           <BandColorSelects
             bandColorValues={this.state}
             setColorBand={this.setColorBand}
