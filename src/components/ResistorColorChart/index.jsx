@@ -1,4 +1,5 @@
 import React from 'react';
+import { string } from 'prop-types';
 
 import './style.css';
 
@@ -23,5 +24,12 @@ const ResistorColorChart = ({
     </g>
   </svg>
 );
+
+ResistorColorChart.propTypes = {
+  bandAColor: string,
+  bandBColor: string,
+  bandCColor: string,
+  bandDColor: string,
+};
 
 export default ResistorColorChart;

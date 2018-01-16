@@ -4,7 +4,7 @@ import './style.css';
 
 const Header = () => (
   <header className="header">
-    Electronic Color Code Calculator
+    Resistor Color Code Calculator
   </header>
 );
 

@@ -13,7 +13,7 @@ export default class App extends Component {
     bandAColor: '',
     bandBColor: '',
     bandCColor: '',
-    bandDColor: '',
+    bandDColor: 'none',
   };
 
   setColorBand = (band, value) => this.setState({ [band]: value });
