@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 import './styles.css';
 import Header from '../Header';
+import ResistorColorChart from '../ResistorColorChart';
 import BandColorSelects from '../BandColorSelects';
 import OhmValues from '../OhmValues';
 import ErrorMessage from '../ErrorMessage';
-import ResistorColorChart from '../ResistorColorChart';
 import { calculateOhmValue } from '../utilities';
 
 export default class App extends Component {

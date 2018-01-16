@@ -15,12 +15,12 @@ const getMenuItems = options => options
     <MenuItem key={value} value={value} primaryText={primaryText} />
   ));
 
-const BandColorSelect = ({
+const Select = ({
   label,
   options,
   ...rest
 }) => (
-  <div className="band-color-select">
+  <div className="select-input">
     <SelectField
       id={label}
       floatingLabelText={label}
@@ -32,7 +32,7 @@ const BandColorSelect = ({
   </div>
 );
 
-BandColorSelect.propTypes = {
+Select.propTypes = {
   label: string.isRequired,
   value: string,
   onChange: func.isRequired,
@@ -42,4 +42,4 @@ BandColorSelect.propTypes = {
   })),
 };
 
-export default BandColorSelect;
+export default Select;

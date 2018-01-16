@@ -39,5 +39,10 @@ public interface IOhmValueCalculator
 - Create a .NET MVC or Reactjs web interface that will allow someone to use the calculator you created in step one.
 - Submit your code by a public or private repository like github, gitlab or bitbucket.
 
+## Issues
+- The above interface expects all four bands for the ohm value calculation but
+  only wants a single int returned. Typically, when the fourth band (tolerance)
+  is taken into consideration, a range of resistances are returned. At the
+  least, two ints.
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).

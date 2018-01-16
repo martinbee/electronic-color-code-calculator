@@ -11,7 +11,7 @@ const ResistorColorChart = ({
   bandCColor,
   bandDColor,
 }) => (
-  <svg viewBox="700 0 740 800" id="svg2" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="700 0 740 800" id="resistor-color-chart" xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(0 27.64)" id="layer1">
       <g id="g3825">
         <rect id="rect3004" width="2080.914" height="48.487" x="32.325" y="318.116" fill="#666" />

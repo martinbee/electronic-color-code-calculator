@@ -11,7 +11,7 @@ import {
   multiplierMap,
   toleranceMap,
 } from '../utilities';
-import BandColorSelect from './BandColorSelect';
+import Select from '../Select';
 import './style.css';
 
 const getOptions = colorMap => Object.keys(colorMap)
@@ -21,22 +21,22 @@ const baseBandColorConfig = [
   {
     key: 'bandAColor',
     label: 'Band A',
-    map: significantFiguresMap,
+    colorMap: significantFiguresMap,
   },
   {
     key: 'bandBColor',
     label: 'Band B',
-    map: significantFiguresMap,
+    colorMap: significantFiguresMap,
   },
   {
     key: 'bandCColor',
     label: 'Band C',
-    map: multiplierMap,
+    colorMap: multiplierMap,
   },
   {
     key: 'bandDColor',
     label: 'Band D',
-    map: toleranceMap,
+    colorMap: toleranceMap,
   },
 ];
 
@@ -45,16 +45,16 @@ const BandColorSelects = ({
   setColorBand,
 }) => {
   const getBandColorConfig = () => baseBandColorConfig
-    .map(({ key, map, ...rest }) => ({
+    .map(({ key, colorMap, ...rest }) => ({
+      key,
       value: bandColorValues[key],
       onChange: (evt, index, value) => setColorBand(key, value),
-      options: getOptions(map),
+      options: getOptions(colorMap),
       ...rest,
     }));
 
-  const renderBandColorSelects = () => getBandColorConfig().map(configItem => (
-    <BandColorSelect key={configItem.label} {...configItem} />
-  ));
+  const renderBandColorSelects = () => getBandColorConfig()
+    .map(configItem => <Select {...configItem} />);
 
   return <div className="band-color-selects">{renderBandColorSelects()}</div>;
 };
